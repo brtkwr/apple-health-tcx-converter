@@ -24,7 +24,7 @@ jobs:
 
     - name: 🧪 Run tests
       run: |
-        python -m unittest test_convert_apple_workouts -v
+        python run_tests.py
 
     - name: 🔍 Run basic smoke test
       run: |
@@ -56,21 +56,6 @@ jobs:
         echo "Checking file sizes..."
         wc -l *.py
         
-        echo "Checking for basic Python best practices..."
-        python -c "
-import ast
-import sys
-
-def check_file(filename):
-    with open(filename, 'r') as f:
-        try:
-            tree = ast.parse(f.read())
-            print(f'✅ {filename}: Valid Python syntax')
-        except SyntaxError as e:
-            print(f'❌ {filename}: Syntax error - {e}')
-            sys.exit(1)
-
-check_file('convert_apple_workouts.py')
-check_file('test_convert_apple_workouts.py')
-print('All syntax checks passed!')
-"
+        echo "Checking Python syntax..."
+        python -c "import ast; ast.parse(open('convert_apple_workouts.py').read()); print('✅ convert_apple_workouts.py: Valid syntax')"
+        python -c "import ast; ast.parse(open('test_convert_apple_workouts.py').read()); print('✅ test_convert_apple_workouts.py: Valid syntax')"
