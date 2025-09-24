@@ -111,6 +111,35 @@ The script generates TCX (Training Center XML) files compatible with:
 ### Heart Rate Data
 Apple Health exports contain workout-level heart rate statistics (avg/min/max) but not second-by-second heart rate data. The converter applies the average heart rate to all trackpoints for Garmin Connect compatibility.
 
+## 🧪 Testing
+
+The project includes comprehensive unit tests with no external dependencies.
+
+### Run Tests
+```bash
+# Using the test runner
+python3 run_tests.py
+
+# Or using unittest directly
+python3 -m unittest test_convert_apple_workouts -v
+
+# Run specific test
+python3 -m unittest test_convert_apple_workouts.TestAppleWorkoutConverter.test_parse_apple_workouts -v
+```
+
+### Test Coverage
+- ✅ XML parsing and workout extraction
+- ✅ GPX file parsing and trackpoint extraction  
+- ✅ TCX generation with and without heart rate
+- ✅ Activity type conversion
+- ✅ Date/time parsing
+- ✅ File organization by year/month
+- ✅ Activity filtering
+- ✅ Error handling for invalid files
+
+### CI/CD
+Tests run automatically on GitHub Actions for Python 3.8-3.12 on every push and pull request.
+
 ## 🔧 Troubleshooting
 
 **"Found 0 Apple Watch workouts"**
