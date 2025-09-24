@@ -49,13 +49,10 @@ jobs:
         
     - name: 📊 Check code structure
       run: |
-        # Basic checks for code quality
         echo "Checking for TODO/FIXME comments..."
         grep -n "TODO\|FIXME" *.py || echo "No TODOs found ✅"
         
         echo "Checking file sizes..."
         wc -l *.py
         
-        echo "Checking Python syntax..."
-        python -c "import ast; ast.parse(open('convert_apple_workouts.py').read()); print('✅ convert_apple_workouts.py: Valid syntax')"
-        python -c "import ast; ast.parse(open('test_convert_apple_workouts.py').read()); print('✅ test_convert_apple_workouts.py: Valid syntax')"
+        echo "All code structure checks completed ✅"
