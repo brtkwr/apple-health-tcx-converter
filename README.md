@@ -138,7 +138,7 @@ python3 -m unittest test_convert_apple_workouts.TestAppleWorkoutConverter.test_p
 - ✅ Error handling for invalid files
 
 ### CI/CD
-Tests run automatically on GitHub Actions for Python 3.11-3.12 on every push and pull request.
+Tests run automatically on GitHub Actions for Python 3.11-3.13 on every push and pull request.
 
 ## 🔧 Troubleshooting
 
